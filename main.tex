@@ -1,0 +1,213 @@
+\documentclass[
+	12pt,				% tamanho da fonte		
+	oneside,
+	a4paper,			% tamanho do papel.
+	chapter=TITLE,
+	%sumario=tradicional,
+	english,			% idioma adicional
+	brazil,				% idioma principal do documento
+	]{abntex2}
+
+% ---
+% PACOTES
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\graphicspath{{figuras/},{figuras/Intro/},{figuras/CAP2/},{figuras/CAP3/},{figuras/CAP4/},{figuras/CAP5/}}
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{float} 				% Set posição da figura
+\usepackage[bottom]{footmisc} 
+\usepackage{subfig} 			% Inserir subfiguras
+\usepackage[table,xcdraw]{xcolor} 	% Cor de preenchimento das tabelas
+\usepackage{multirow} 			%mesclar cel em tabelas
+\usepackage{verbatim}			%Inserir codigos fontes e comentários em massa
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{lib/abntex2cite}
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{amsmath}
+\usepackage[bottom]{footmisc}
+\usepackage{footnote}
+%\usepackage{fnpos}
+%\usepackage{ftnxtra}
+\usepackage{listings} 			%Inserir códigos fontes
+\usepackage{rotating} 			%Rotação de páginas
+\usepackage{placeins}			% Forçar o posicionamento da figura
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry} % Margens
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+
+\titulo{{\normalfont \textbf{Título do seu Trabalho}}}
+\autor{Fulano de Tal}
+\local{Natal -- RN}
+\data{Dezembro de 2017}
+\instituicao{
+  Universidade Federal do Rio Grande do Norte -- UFRN
+  \par
+  Departamento de Engenharia de Computação e Automação -- DCA
+  \par
+  Curso de Engenharia de Computação
+
+}
+\tipotrabalho{Relatório técnico}
+
+\preambulo{Trabalho de Conclusão de Curso de Engenharia de Computação da Universidade Federal do Rio Grande do Norte, apresentado como requisito parcial para a obtenção do grau de Bacharel em Engenharia de Computação
+\newline 
+\newline 
+Orientador: John Doe}
+
+% Configurações de aparência do PDF final
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% Espaçamentos entre linhas e parágrafos 
+\setlength{\parindent}{1.25cm} % Tamanho do parágrafo
+\setlength{\parskip}{0.2cm}	% Controle do espaçamento entre um parágrafo e outro
+
+%\onelineskip % Controle do espaçamento entre um parágrafo e outro
+
+\makeindex % compila o indice
+
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+\pretextual
+
+% Capa
+\imprimircapa
+
+% Folha de rosto
+\imprimirfolhaderosto
+
+% Inserir folha de aprovação
+\include{pre-textuais/folha-de-aprovacao}
+
+% Dedicatória
+\begin{dedicatoria}
+	\vspace*{\fill}
+	\centering
+	\noindent
+	\textit{Escreva aqui sua dedicatória}
+	 \vspace*{\fill}
+\end{dedicatoria}
+
+% Agradecimentos
+\include{pre-textuais/agradecimentos}
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+	\vspace*{\fill}
+	\begin{flushright}
+		\textit{``Feliz o homem que encontrou a sabedoria e alcançou o entendimento,\\
+			porque a sabedoria vale mais do que a prata, \\
+			e dá mais lucro que o ouro."\\
+			(Bíblia Sagrada, Provérbios 3, 13-14)}
+	\end{flushright}
+\end{epigrafe}
+
+% RESUMO
+\include{pre-textuais/resumo}
+
+% ---
+% inserir lista de ilustrações
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+% inserir lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% inserir lista de abreviaturas e siglas
+\begin{siglas}
+\item[HTML] \textit{HyperText Markup Language}
+\item[JSON] \textit{JavaScript Object Notation}
+\item[REST] \textit{Representational State Transfer}
+\end{siglas}
+
+% inserir lista de símbolos
+\begin{simbolos}
+  \item[$ \Gamma $] Letra grega Gama
+  \item[$ \Lambda $] Lambda
+  \item[$ \zeta $] Letra grega minúscula zeta
+  \item[$ \in $] Pertence
+\end{simbolos}
+
+% inserir o sumario
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\textual
+
+% Capitulo 1: Introdução
+\include{textuais/introducao}
+
+% Capitulo 2
+\include{textuais/capitulo2}
+
+% Capitulo 3
+\include{textuais/capitulo3}
+
+% Capitulo 4
+\include{textuais/capitulo4}
+
+% Capitulo 5
+\include{textuais/capitulo5}
+
+% Conclusão
+\include{textuais/conclusao}
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+
+% 
+\postextual
+
+% Referências bibliográficas
+%\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+
+\bibliographystyle{abntex2-alf}
+%\bibliographystyle{unsrt}
+\bibliography{bibliografia/referencias}
+
+\end{document}
