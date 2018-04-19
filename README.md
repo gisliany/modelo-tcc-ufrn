@@ -5,5 +5,5 @@ Este modelo é uma adaptação do fornecido no editor ShareLaTeX (Editor Online 
 
 # Contribuidores
 
-- Helton Pierre Lucena
-- Gisliany Alves
+- [Helton Pierre](https://github.com/heltonpierre)
+- [Gisliany Alves](https://github.com/gisliany)
