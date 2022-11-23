@@ -13,7 +13,40 @@ Itens em latex:
 	\item texto 3;
 \end{itemize}
 
-\lipsum[2-3]
+\lipsum[2-2]
+
+A seguir, o Algoritmo~\ref{algoritmo1} mostra o procedimento descrito de seleção de variáveis sob a forma de pseudocódigo. 
+
+\begin{algorithm}[ht]
+\SetAlgoLined
+\Dados{$dataset$}
+\Saida{Conjunto das melhores variáveis regressoras para o regressando y}
+    \BlankLine
+    $k \leftarrow 1$\;
+    $limite\_fiv \leftarrow 5$\;
+    \Enqto{k $\leq$ dataset.numero\_regressores}{
+        \tcp{seleção das k melhores variáveis usando Teste F}
+        $k\_regressores \leftarrow$ \textsl{selecionarKMelhores(dataset.x, dataset.y, ``testeF'', k)}\;
+        
+        \BlankLine
+        \tcp{análise de multicolinearidade}
+        \Para{\emph{cada} regressor \emph{em} k\_regressores}{
+            \Se{\textsl{calcularFIV(regressor)} $\leq$ limite\_fiv}{
+                $regressores\_selecionados$.\textsl{adicionar(regressor)}\;
+            }
+        }
+        
+        \BlankLine
+        \tcp{modelo de regressão (ajuste pelo MQO) e coeficiente R\textsuperscript{2}}
+        $modelo \leftarrow$\textsl{MQO(dataset.y, regressores\_selecionados)}\;
+        $resultados.$\textsl{adicionar(k, regressores\_selecionados, modelo.r2)}\;
+        
+    $k \leftarrow k + 1$;
+ }
+ \Retorna{resultados.\textsl{obterRegressoresComR2Maximo()}\;}
+ \caption{Seleção de variáveis para análise de regressão}
+ \label{algoritmo1}
+\end{algorithm}
 
 \subsection{Subseção}
 

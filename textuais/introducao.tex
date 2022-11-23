@@ -1,17 +1,18 @@
 \chapter[Introdução]{Introdução}
 \label{ch:introdução}
-Escreva aqui seu capítulo introdutório. Ele pode conter figuras, tabelas e subseções. Exemplo de uma citação indireta \cite{yu2011new}, e da \autoref{fig:rede_convencional}. Imagens do autor, tem na fonte o texto "Elaborado pelo autor".
+Escreva aqui seu capítulo introdutório. 
+Ele pode conter figuras, tabelas e subseções. Exemplo de uma citação indireta \cite{yu2011new}. De acordo com~\citeonline{ali2013smart}, isso é uma citação indireta com menção do autor incluída na frase. Além disso, toda imagem, como a \autoref{fig:rede_convencional}, deve ser mencionada e explicada no texto. Imagens do autor, tem na fonte o texto "Elaborado pelo autor". Além disso, as legendas das imagens devem ser autoexplicativas, de modo que façam sentido sozinhas na lista de figuras.
 
 \begin{figure}[h!]
 	\includegraphics[width=0.9\textwidth, keepaspectratio=true]{rede_convencional}
 	\centering
 	\caption[Esquemático de uma rede elétrica convencional.]{Esquemático de uma rede elétrica convencional.}
-	\fonte{\cite[p. 15]{cgee}.}
+	\fonte{\citeonline[p. 15]{cgee}.}
 	\label{fig:rede_convencional}
 \end{figure}
 \FloatBarrier
 
-Exemplo de citação direta com menos de três linhas. Como "o mercado de energia elétrica está baseado em tarifas fixas e limitações de informações em tempo real sobre gerenciamento da rede e da carga" \cite[p. 15]{cgee}, o consumidor acaba, então, não tendo como optar por fornecimentos elétricos mais adequados. 
+A seguir, exemplo de citação direta com menos de três linhas. Como "o mercado de energia elétrica está baseado em tarifas fixas e limitações de informações em tempo real sobre gerenciamento da rede e da carga" \cite[p. 15]{cgee}, o consumidor acaba, então, não tendo como optar por fornecimentos elétricos mais adequados. 
 
 
 \section{Uma subseção explicativa}
@@ -26,39 +27,35 @@ Para compreender melhor as grandes mudanças e os benefícios gerados pelas \tex
 
 \begin{table}[!ht]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ll}
-\hline
-\multicolumn{1}{c}{\textbf{Redes Elétricas Tradicionais}} & \multicolumn{1}{c}{\textbf{Redes Elétricas Inteligentes}}                 \\ \hline
-\rowcolor[HTML]{DDDDDD} 
-Eletromecânica, estado sólido                             & Digital/Microprocessadores                                                \\
-Unidirecional e localmente bidirecional                   & Global/comunicação bidirecional integrada                                 \\
-\rowcolor[HTML]{DDDDDD} 
-Geração centralizada                                      & Acomoda geração distribuída                                               \\
-{Controle, monitoramento e proteção limitados}  & WAMPAC, proteção adaptativa \\
-\rowcolor[HTML]{DDDDDD} 
-"Cega"                                                    & Auto-monitoramento                                                        \\
-Recuperação manual                                        & Auto-reconfigurável                                                       \\
-\rowcolor[HTML]{DDDDDD} 
-Checagem manual de equipamentos                           & Monitoração remota de equipamentos                                        \\
-Sistema de controle de contingências limitado             & Sistema de controle pervasivo                                             \\
-\rowcolor[HTML]{DDDDDD} 
-Confiabilidade estimada                                   & Confiabilidade preditiva                                                 
+% com o comando resizebox é possível definir a largura da tabela
+%\resizebox{\textwidth}{!}{%
+\begin{tabular}{lc}
+\toprule
+\multicolumn{1}{c}{\textbf{Variável}} & \multicolumn{1}{c}{\textbf{Valor}} \\
+\midrule
+Variável 01 & 0,7 \\
+Variável 02 & 0,1 \\
+Variável 03 & 1,0 \\
+Variável 04 & 0,5 \\
+Variável 05 & 0,9 \\
+Variável 06 & 2,0 \\
+\bottomrule
 \end{tabular}%
-}
+%}
 \caption{Comparação entre redes elétricas convencionais e redes elétricas inteligentes}
 \label{tab-comparativa}
-\fonte{\cite[p. 28, tradução nossa]{ali2013smart}}
+\fonte{\citeonline[p. 28, tradução nossa]{ali2013smart}}
 \end{table}
 
 \section{Trabalhos Relacionados}
+Aqui são mencionados os trabalhos já existentes na literatura que descrevem como se encontra atualmente o ramo científico que você está pesquisando. Existem trabalhos similares ao seu? Mencione-os, explicando o que os autores fizeram e como fizeram. Ao final, é interessante evidenciar o que o seu trabalho traz como novidade e contribuição.
 \lipsum[1-1]
 
 \section{Motivação}
 O que lhe motiva a realizar este trabalho.
 
 \section{Objetivos}
-Objetivo geral e específicos.
+Objetivo geral e específicos. Objetivos devem ser escritos com verbo no infinivo. Em linhas gerais, os objetivos específicos são "os passos menores" para se alcançar o objetivo geral.
 
 \section{Estrutura do Trabalho}
 Este trabalho apresenta uma introdução sobre o tema, mostrando os fatores que motivam a implantação da ideia, além da justificativa e dos objetivos. Em sequência, o \autoref{ch:cap2} aborda (...). O \autoref{ch:cap3}, por sua vez, explica a metodologia para ..., enquanto o \autoref{ch:cap4} trata de (...). O \autoref{ch:cap5} apresenta (...). Por fim, o \autoref{ch:cap6} traz as principais conclusões e contribuições deste trabalho.
